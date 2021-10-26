@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+	jcr:primaryType="cq:Dialog"
+	title="Article Title"
+	xtype="dialog">
+	<items jcr:primaryType="cq:WidgetCollection">
+		<mainTab
+			jcr:primaryType="cq:Widget"
+			anchor="100%"
+			title="Article Title"
+			xtype="panel">
+			<items jcr:primaryType="cq:WidgetCollection">
+				<title
+					jcr:primaryType="cq:Widget"
+					fieldLabel="Title"
+					allowBlank="{Boolean}false"
+					name="./title"
+					xtype="textfield"/>
+				<highlightedTitle
+					jcr:primaryType="cq:Widget"
+					fieldLabel="Highlighted Title"
+					allowBlank="{Boolean}false"
+					name="./highlightedTitle"
+					xtype="textfield"/>
+			</items>
+		</mainTab>
+	</items>
+</jcr:root>

@@ -1,0 +1,9 @@
+<sly data-sly-use.placeholder="com.fonterra.anchorglobal.core.components.PlaceholderManager"/>
+<sly data-sly-test="${wcmmode.edit}">
+  ${placeholder.defaultPlaceholder @context='unsafe'}
+</sly>
+
+<div class="title-inline-large">${properties.title}&nbsp;<span>${properties.highlightedTitle}</span></div>
+<p>${properties.pathFieldValue}</p>
+
+<img src="${properties.pathFieldValue}"/>

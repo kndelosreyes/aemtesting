@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>AEM TESTING UI</comment>
+<entry key="createdBy">kdelosreyes</entry>
+<entry key="name">aemtesting-ui</entry>
+<entry key="created">2021-10-26T10:19:24.887+0800</entry>
+<entry key="groupId">com.deloitte</entry>
+<entry key="version">1.0.0-SNAPSHOT</entry>
+<entry key="requiresRoot">false</entry>
+<entry key="group">com.deloitte}</entry>
+<entry key="description">AEM TESTING UI</entry>
+<entry key="artifactId">aemtesting-ui</entry>
+<entry key="path">/etc/packages/com.deloitte}/aemtesting-ui.zip</entry>
+</properties>

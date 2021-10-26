@@ -1,0 +1,20 @@
+<sly data-sly-use.model="com.deloitte.components.WebDAMAsset">
+<div data-sly-test="${model.configured && model.image}" class="webdam-asset webdam-${model.cssClass}">
+	<a
+	    data-sly-unwrap="${!model.linkUrl}"
+	    href="${model.linkUrl}"
+	    >
+		<figure>
+			<img 
+				data-sly-attribute.alt="${model.alt}"
+				data-sly-attribute.title="${model.title}" 
+				data-sly-attribute.width="${model.width}" 
+				data-sly-attribute.height="${model.height}" 
+				src="${model.url}"/>
+			<figcaption data-sly-text="${model.description}"></figcaption>
+		</figure>
+	</a>	
+</div>
+
+<span data-sly-test="${(!model.configured || !model.image) && !wcmmode.disabled}"><b>Please configure a WebDAM Image</b></span>
+</sly>

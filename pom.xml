@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.deloitte</groupId>
+	<artifactId>aemtesting</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>AEM TESTING AEM Site</name>
+
+    <prerequisites>
+        <maven>3.2.5</maven>
+    </prerequisites>
+
+	<modules>
+		<module>aemtesting-core</module>
+		<module>aemtesting-ui</module>
+	</modules>
+
+    <repositories>
+        <repository>
+            <id>adobe-public-releases</id>
+            <name>Adobe Public Repository</name>
+            <url>http://repo.adobe.com/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>adobe-public-releases</id>
+            <name>Adobe Public Repository</name>
+            <url>http://repo.adobe.com/nexus/content/groups/public</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <aem.host>localhost</aem.host>
+        <aem.port>4502</aem.port>
+        <aem.username>admin</aem.username>
+        <aem.password>admin</aem.password>
+
+        <!-- incorrect naming convention left for backwards compatability -->
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.prefix>fonterra-commons</project.prefix>
+        <project.app.loc>fonterra-commons</project.app.loc>
+
+        <!-- These variables will help ensure stanard names for projects artifact -->
+        <pom.artifact.app>${project.prefix}-app</pom.artifact.app>
+        <pom.artifact.core>${project.prefix}-core</pom.artifact.core>
+        <pom.artifact.config>${project.prefix}-config</pom.artifact.config>
+        <pom.artifact.content>${project.prefix}-content</pom.artifact.content>
+        <pom.artifact.server.test>${project.prefix}-serverside-tests</pom.artifact.server.test>
+        <pom.artifact.content.tests>${project.prefix}-content-tests-author</pom.artifact.content.tests>
+        <cq.package.group>AEM TESTING</cq.package.group>
+        <core.name>aemtesting-core</core.name>
+        <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss.SSSZ</maven.build.timestamp.format>
+        <timestamp>${maven.build.timestamp}</timestamp>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.junit.usefile>false</maven.junit.usefile>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>autoInstallPackage</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.day.jcr.vault</groupId>
+                        <artifactId>content-package-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>install-package</id>
+                                <goals>
+                                    <goal>install</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <targetURL>http://${aem.host}:${aem.port}/crx/packmgr/service.jsp</targetURL>
+                            <failOnError>true</failOnError>
+                            <failOnMissingEmbed>true</failOnMissingEmbed>
+                            <userId>${aem.username}</userId>
+                            <password>${aem.password}</password>
+                            <verbose>true</verbose>
+                            <useProxy>false</useProxy>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <skip>true</skip>
+                <sling.user>admin</sling.user>
+            </properties>
+        </profile>
+        <profile>
+            <id>local-author</id>
+            <activation>
+                <property>
+                    <name>local-author</name>
+                </property>
+            </activation>
+            <properties>
+                <skip>false</skip>
+                <sling.scheme>http</sling.scheme>
+                <sling.host>localhost</sling.host>
+                <sling.port>4502</sling.port>
+                <sling.user>admin</sling.user>
+                <sling.password>admin</sling.password>
+            </properties>
+        </profile>
+        <profile>
+            <id>deploy-publish</id>
+            <activation>
+                <property>
+                    <name>deploy-publish</name>
+                </property>
+            </activation>
+            <properties>
+                <skip-publish>false</skip-publish>
+            </properties>
+        </profile>
+        <profile>
+            <id>github-site</id>
+            <activation>
+                <property>
+                    <name>github-site</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.github</groupId>
+                        <artifactId>site-maven-plugin</artifactId>
+                        <version>0.12</version>
+                        <configuration>
+                            <message>site for ${project.version}</message>
+                            <server>github</server>
+                            <merge>true</merge>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>site</goal>
+                                </goals>
+                                <phase>site</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.5.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>xml-maven-plugin</artifactId>
+                <version>1.0.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>3.2.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-scr-plugin</artifactId>
+                <version>1.22.0</version>
+            </plugin>
+            <plugin>
+                <groupId>com.day.jcr.vault</groupId>
+                <artifactId>content-package-maven-plugin</artifactId>
+                <version>0.5.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-gitexe</artifactId>
+                        <version>1.9.1</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <!-- <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin> -->
+        </plugins>
+    </build>
+</project>

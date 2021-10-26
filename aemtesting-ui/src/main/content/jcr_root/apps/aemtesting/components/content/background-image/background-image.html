@@ -1,0 +1,10 @@
+<sly
+	data-sly-use.placeholder="com.fonterra.anlene.core.components.PlaceholderManager" />
+<sly data-sly-test="${wcmmode.edit}">${placeholder.defaultPlaceholder
+@context='unsafe'}</sly>
+
+<p>Mobile View</p>
+<img src="${properties.bgImageMobile}"/>
+
+<p>Desktop View</p>
+<img src="${properties.bgImageDesktop}"/>

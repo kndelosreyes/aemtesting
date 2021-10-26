@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="WebDAM Image"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/tabs">
+        <items jcr:primaryType="nt:unstructured">
+            <image
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Image"
+                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <rendition
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldDescription="Choose the most appropriate rendition fitting your needs"
+                                renderHidden="{Boolean}true"
+                                fieldLabel="Rendition"
+                                name="./rendition">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <size_1280
+                                        jcr:primaryType="nt:unstructured"
+                                        text="1280"
+                                        value="1280"/>
+                                    <size_550
+                                        jcr:primaryType="nt:unstructured"
+                                        text="550"
+                                        value="550"/>
+                                    <size_310
+                                        jcr:primaryType="nt:unstructured"
+                                        text="310"
+                                        value="310"/>
+                                    <size_220
+                                        jcr:primaryType="nt:unstructured"
+                                        text="220"
+                                        value="220"/>
+                                    <size_150
+                                        jcr:primaryType="nt:unstructured"
+                                        text="150"
+                                        value="150"/>
+                                    <size_100
+                                        jcr:primaryType="nt:unstructured"
+                                        text="100"
+                                        value="100"/>
+                                </items>
+                            </rendition>
+                            <path
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                fieldDescription="Select the WebDAM image to display"
+                                fieldLabel="Path"
+                                hierarchyNotFile="webdamimage"
+                                name="./path"
+                                renderHidden="{Boolean}true"
+                                rootPath="/content/webdam"/>
+                            <dampath
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                fieldDescription="Select the DAM image to display"
+                                fieldLabel="DAM Path"
+                                name="./pathDAM_1280"
+                                rootPath="/content/dam"/>
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Title"
+                                name="./jcr:title"/>
+                            <linkURL
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                fieldLabel="Link to"
+                                name="./linkURL"
+                                rootPath="/"/>
+                            <description
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                fieldLabel="Description"
+                                name="./jcr:description"/>
+                            <size
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/sizefield"
+                                fieldDescription="Customize the size of the selected rendition by either providing width or height. When providing both please ensure that the ratio of the selected rendition is kept."
+                                fieldLabel="Custom size (px)">
+                                <width
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                    fieldDescription="Width"
+                                    name="./width"/>
+                                <height
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                    fieldDescription="Height"
+                                    name="./height"/>
+                            </size>
+                        </items>
+                    </column>
+                </items>
+            </image>
+            <accessibility
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Accessibility"
+                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <alt
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Provide a textual alternative of the content and function of the image."
+                                fieldLabel="Alternative Text"
+                                name="./alt"/>
+                            <decorative
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Check if the image should be ignored by assistive technology. This applies to decorative images only."
+                                name="./isDecorative"
+                                text="Image is decorative"
+                                value="true"/>
+                            <deleteIsDecorative
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                                name="./isDecorative@Delete"
+                                value="true"/>
+                        </items>
+                    </column>
+                </items>
+            </accessibility>
+        </items>
+    </content>
+</jcr:root>

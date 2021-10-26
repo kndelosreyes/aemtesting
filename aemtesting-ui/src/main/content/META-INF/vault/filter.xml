@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/aemtesting/components" />
+    <filter root="/apps/aemtesting/templates" />
+    <filter root="/apps/aemtesting/install/${core.name}-${project.parent.version}.jar" />
+    <filter root="/etc/designs/aemtesting">
+        <exclude pattern="/etc/designs/aemtesting/jcr:content(/.*)?"/>
+    </filter>
+</workspaceFilter>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<groupId>com.deloitte</groupId>
+		<artifactId>aemtesting</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>aemtesting-ui</artifactId>
+	<packaging>content-package</packaging>
+	<name>AEM TESTING UI</name>
+
+	<properties>
+		<maven.test.skip>true</maven.test.skip>
+	</properties>
+
+	<build>
+        <resources>
+            <resource>
+                <directory>src/main/content/jcr_root</directory>
+                <filtering>false</filtering>
+                <excludes>
+                    <exclude>**/.vlt</exclude>
+                    <exclude>**/.vltignore</exclude>
+                </excludes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <encoding>utf-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>xml-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>validate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <validationSets>
+                        <validationSet>
+                            <dir>src/main/content/jcr_root</dir>
+                            <includes>
+                                <include>**/*.xml</include>
+                            </includes>
+                        </validationSet>
+                    </validationSets>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.day.jcr.vault</groupId>
+                <artifactId>content-package-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <failOnError>true</failOnError>
+                    <group>com.deloitte}</group>
+                    <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
+                    <embeddeds>
+                        <embedded>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>${core.name}</artifactId>
+                            <target>/apps/aemtesting/install</target>
+                        </embedded>
+                    </embeddeds>
+                    <targetURL>${sling.scheme}://${sling.host}:${sling.port}/crx/packmgr/service.jsp?install=true</targetURL>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>install</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>${core.name}</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
+</project>
