@@ -49,6 +49,8 @@
                             !sun.misc.*,*
                         </Import-Package>
                         <Export-Package>com.deloitte.*</Export-Package>
+                        <Require-Bundle>org.apache.sling.models.api</Require-Bundle>
+                        <Sling-Model-Packages>com.deloitte.components</Sling-Model-Packages>
                         <Embed-Transitive>true</Embed-Transitive>
                     </instructions>
                 </configuration>
@@ -165,12 +167,22 @@
             <artifactId>guava</artifactId>
             <version>19.0</version>
         </dependency>
-
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>uber-jar</artifactId>
             <version>6.2.0</version>
             <classifier>obfuscated-apis</classifier>
+        </dependency>
+        <dependency>
+            <groupId>javax.jcr</groupId>
+            <artifactId>jcr</artifactId>
+            <version>2.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
         </dependency>
     </dependencies>
 </project>

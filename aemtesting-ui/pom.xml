@@ -63,7 +63,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <failOnError>true</failOnError>
-                    <group>com.deloitte}</group>
+                    <group>com.deloitte</group>
                     <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
                     <embeddeds>
                         <embedded>
@@ -72,7 +72,7 @@
                             <target>/apps/aemtesting/install</target>
                         </embedded>
                     </embeddeds>
-                    <targetURL>${sling.scheme}://${sling.host}:${sling.port}/crx/packmgr/service.jsp?install=true</targetURL>
+                    <targetURL>http://localhost:4502/crx/packmgr/service.jsp?install=true</targetURL>
                 </configuration>
                 <executions>
                     <execution>
