@@ -3,7 +3,7 @@
 .idea/misc.xml
 .idea/vcs.xml
 .idea/workspace.xml
-aemtesting-core/target/aemtesting-core-1.0.0-SNAPSHOT.jar
+aemtesting-core/target/*
 aemtesting-core/target/classes/com/deloitte/components/UserInfo.class
 aemtesting-core/target/classes/META-INF/MANIFEST.MF
 aemtesting-core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
@@ -16,3 +16,7 @@ aemtesting-ui/target/classes/apps/aemtesting/components/content/article-title/ar
 aemtesting-ui/target/maven-archiver/pom.properties
 aemtesting-ui/target/vault-work/META-INF/vault/filter.xml
 aemtesting-ui/target/vault-work/META-INF/vault/properties.xml
+aemtesting-core/target/classes/com/deloitte/components/NavigationList.class
+aemtesting-ui/target/classes/apps/aemtesting/components/content/multifield-comp/.content.xml
+aemtesting-ui/target/classes/apps/aemtesting/components/content/multifield-comp/multifield-comp.html
+aemtesting-ui/target/classes/apps/aemtesting/components/content/multifield-comp/_cq_dialog/.content.xml

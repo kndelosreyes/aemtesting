@@ -1,0 +1,21 @@
+<sly data-sly-use.placeholder="com.fonterra.anchorglobal.core.components.PlaceholderManager"/>
+<sly data-sly-use.navigation="com.deloitte.components.NavigationList"/>
+
+<sly data-sly-test="${wcmmode.edit}">
+  ${placeholder.defaultPlaceholder @context='unsafe'}
+</sly>
+
+<div class="title-inline-large">${properties.title}&nbsp;<span>${properties.highlightedTitle}</span></div>
+<p>${properties.pathFieldValue}</p>
+
+<img src="${properties.pathFieldValue}"/>
+
+<!-- Sightly Mapping -->
+<select data-sly-list.supplier="${properties.dropdownEntry}">
+  <option value="${supplier}">${supplier}</option>
+</select>
+
+<!-- Navigation List -->
+<ul data-sly-test="${navigation.navigationList}" data-sly-list.customer="${navigation.navigationList}">
+  <li>${customer}</li>
+</ul>
