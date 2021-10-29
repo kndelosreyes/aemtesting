@@ -1,0 +1,8 @@
+<sly data-sly-use.placeholder="com.fonterra.anchorglobal.core.components.PlaceholderManager"/>
+
+<sly data-sly-test="${wcmmode.edit}">
+  ${placeholder.defaultPlaceholder @context='unsafe'}
+</sly>
+
+<sly data-sly-use.childPage="${'com.deloitte.components.ChildMapperWcmUse'}"></sly>
+  <p>Page Name : ${childPage.pageTitle}</p>

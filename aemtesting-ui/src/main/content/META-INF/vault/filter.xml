@@ -3,7 +3,5 @@
     <filter root="/apps/aemtesting"/>
 <!--    <filter root="/apps/aemtesting-->
 <!--    <filter root="/apps/aemtesting-->
-    <filter root="/etc/designs/aemtesting">
-        <exclude pattern="/etc/designs/aemtesting/jcr:content(/.*)?"/>
-    </filter>
+    <filter root="/etc/designs/aemtesting"/>
 </workspaceFilter>

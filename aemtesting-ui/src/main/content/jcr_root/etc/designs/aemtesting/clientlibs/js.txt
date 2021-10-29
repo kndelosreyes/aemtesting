@@ -1,0 +1,9 @@
+#base=js
+bootstrap.bundle.min.js
+custom.js
+jquery.mCustomScrollbar.concat.min.js
+jquery.min.js
+jquery.validate.js
+jquery-3.0.0.min.js
+plugin.js
+popper.min.js

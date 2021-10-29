@@ -1,0 +1,60 @@
+<head data-sly-use.head="/libs/wcm/foundation/components/page/head.js"
+	data-sly-use.wcmInit="/libs/wcm/foundation/components/page/initwcm.js" >
+	<sly data-sly-include="/libs/wcm/core/components/init/init.jsp" data-sly-unwrap />
+
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>nolo</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+
+	<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+		<div data-sly-call="${clientLib.css @ categories='apps.aemtesting'}" data-sly-unwrap ></div>
+   	</sly>
+
+	<meta charset="utf-8" data-sly-use.head="head.js">
+	<meta name="keywords" content="${pageProperties.keywords}"/>
+	<meta name="description" content="${pageProperties.jcr:description}"/>
+    <meta name="robots" content="index, follow">
+
+<!--	<link rel="canonical" href="${headerWcmUse.getCurrentPagePath}" />-->
+	<!-- Google Recaptcha -->
+	<script src="${inheritedPageProperties.recaptchaURL}" async defer></script>
+
+	<!--Facebook Verification -->
+	<meta data-sly-test="${inheritedPageProperties.facebookverificationid}" name="facebook-domain-verification" content="${inheritedPageProperties.facebookverificationid}">
+
+    <!-- Open Graph data -->
+	<meta property="og:title" content="${pageProperties.metaTitle || currentPage.pageTitle || currentPage.title}" />
+	<meta property="og:description" content="${pageProperties.jcr:description}" />
+<!--	<meta property="og:url" content="${headerWcmUse.currentPagePath}"/>-->
+    <sly data-sly-test.isHomepage="${pageProperties.cq:template == '/apps/aemtesting/components/structure/home-page'}">
+	    <meta property="og:type" content="website" />
+	</sly>
+	<sly data-sly-test="${!isHomepage}">
+	    <meta property="og:type" content="Article" />
+	</sly>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	
+	<sly data-sly-include="favicon-mobile-homescreen.html" data-sly-unwrap />
+
+<!--	<sly data-sly-test="${headerWcmUse.hrefList}">-->
+<!--		<sly data-sly-list.hrefLanguages="${headerWcmUse.hrefList}">-->
+<!--			<link rel= "alternate" hreflang= "${hrefLanguages.hreflang}" href="${hrefLanguages.url}" />-->
+<!--		</sly>-->
+<!--	</sly>-->
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>

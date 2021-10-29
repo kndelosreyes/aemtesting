@@ -1,0 +1,34 @@
+<div data-sly-resource="${ @path='footer-par', resourceType='/apps/aemtesting/components/content/background-image}" data-sly-unwrap="${!wcmmode.edit}"></div>
+
+<footer>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copyright">
+                        <p>© 2019 All Rights Reserved. <a href="https://html.design/">Free html Templates</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- end footer -->
+<!-- Javascript files-->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+	<div data-sly-call="${clientLib.js @ categories='apps.aemtesting'}" data-sly-unwrap></div>
+</sly>
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=${inheritedPageProperties.googleApiKey}&libraries=geometry,places"></script>-->
+
+<!--/* Include Adobe Dynamic Tag Management libraries for the footer */-->
+<!--<sly data-sly-test="${wcmmode.edit}" data-sly-call="${clientLib.js @ categories='app.fonterra.commons.multifield'}"/>-->
+
+<!--Google Recaptcha-->
+<!--   <script>-->
+<!--    function recaptchaCallBack() {-->
+<!--        var btnSubmit = document.getElementById("recaptcha-submit");-->
+
+<!--        var btnSubmit = document.getElementById("recaptcha-submit");-->
+<!--        btnSubmit.removeAttribute("disabled");-->
+<!--    }-->
+<!--    </script>-->

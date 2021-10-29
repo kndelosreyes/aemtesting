@@ -1,0 +1,21 @@
+{
+  "short_name": "Anchor",
+  "name": "Anchor",
+  "icons": [
+    {
+      "src": "/etc/designs/anchorglobal/clientlibs/images/anchor-android-device-pwa-icon-1x-192x192px-image.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/etc/designs/anchorglobal/clientlibs/images/anchor-android-device-pwa-icon-1x-192x192px-image.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/etc/designs/anchorglobal/clientlibs/images/anchor-android-device-pwa-icon-1x-192x192px-image.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ]
+}
