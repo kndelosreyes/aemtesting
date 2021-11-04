@@ -47,10 +47,11 @@
                     <instructions>
                         <Import-Package>
                             !sun.misc.*,*
+                            com.adobe.cq.sightly;version="2.5.3",*
                         </Import-Package>
                         <Export-Package>com.deloitte.*</Export-Package>
                         <Require-Bundle>org.apache.sling.models.api</Require-Bundle>
-                        <Sling-Model-Packages>com.deloitte.components</Sling-Model-Packages>
+                        <Sling-Model-Packages>com.deloitte.*</Sling-Model-Packages>
                         <Embed-Transitive>true</Embed-Transitive>
                     </instructions>
                 </configuration>
