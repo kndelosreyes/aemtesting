@@ -5,4 +5,20 @@
 </sly>
 
 <sly data-sly-use.childPage="${'com.deloitte.components.ChildMapperWcmUse'}"></sly>
-  <p>Page Name : ${childPage.pageTitle}</p>
+  <p>Page Name : ${childPage.parentPath}</p>
+
+<p>Child Pages</p>
+
+<ul data-sly-test="${childPage.childPages}" data-sly-list.childEntry="${childPage.childPages}">
+  <li>${childEntry.pageTitle}</li>
+</ul>
+
+<p>Customer Entries</p>
+<ul data-sly-test="${childPage.navigation}" data-sly-list.customerEntry="${childPage.navigation.navigationList}">
+  <li>${customerEntry}</li>
+</ul>
+
+<p>Customer</p>
+<ul data-sly-test="${childPage.customers}" data-sly-list.customerName="${childPage.customers}">
+  <li>${customerName}</li>
+</ul>
