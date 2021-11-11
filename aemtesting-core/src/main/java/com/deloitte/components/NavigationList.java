@@ -16,6 +16,12 @@ public class NavigationList {
     @Inject
     private String[] navigationEntry;
 
+    @Inject
+    private String[] dropdownEntry;
+
+    @Inject String title;
+
+
     public List<String> getNavigationList() {
         return Arrays.asList(navigationEntry);
     }

@@ -5,6 +5,7 @@ import com.day.cq.wcm.api.Page;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
 
+import javax.jcr.Node;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -39,11 +40,12 @@ public class ChildMapperWcmUse extends WCMUsePojo  {
                 while (childResource.hasNext()){
                     Resource resourceEntry = childResource.next();
                     if(resourceEntry.isResourceType("aemtesting/components/content/multifield-comp")){
-//                        navigation = resourceEntry.adaptTo(NavigationList.class);
-                        ValueMap multifieldProp =  resourceEntry.getValueMap();
-                        if(multifieldProp != null){
-                            customers = Arrays.asList(multifieldProp.get("navigationEntry", String[].class));
-                        }
+                        Resource resourceList = this.getResourceResolver().getResource(resourceEntry.getPath());
+                        navigation = resourceList.adaptTo(NavigationList.class);
+//                        ValueMap multifieldProp =  resourceEntry.getValueMap();
+//                        if(multifieldProp != null){
+//                            customers = Arrays.asList(multifieldProp.get("navigationEntry", String[].class));
+//                        }
                     }
                 }
             }
