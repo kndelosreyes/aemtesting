@@ -6,29 +6,22 @@ import org.apache.sling.models.annotations.Model;
 
 import javax.inject.Inject;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-public class NavigationList {
+public class ContactInfo {
 
     @Inject
-    private String[] navigationEntry;
+    private String inputField1;
 
     @Inject
-    private String[] dropdownEntry;
+    private String inputField2;
 
-    @Inject String title;
-
-
-    public List<String> getNavigationList() {
-        return Arrays.asList(navigationEntry);
+    public String getInputField1() {
+        return inputField1;
     }
 
-    private List<String> navigationList;
-
-    public String[] getDropdownEntry() {
-        return dropdownEntry;
+    public String getInputField2() {
+        return inputField2;
     }
 }

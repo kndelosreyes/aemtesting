@@ -1,0 +1,8 @@
+#formContact label{
+    display: block;
+    width: 130px;
+}
+
+#formContact input[type="date"]{
+    width: 172px;
+}

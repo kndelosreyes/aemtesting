@@ -51,7 +51,7 @@
                         </Import-Package>
                         <Export-Package>com.deloitte.*</Export-Package>
                         <Require-Bundle>org.apache.sling.models.api</Require-Bundle>
-                        <Sling-Model-Packages>com.deloitte.*</Sling-Model-Packages>
+                        <Sling-Model-Packages>com.deloitte.*, com.deloitte.components</Sling-Model-Packages>
                         <Embed-Transitive>true</Embed-Transitive>
                     </instructions>
                 </configuration>

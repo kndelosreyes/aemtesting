@@ -1,0 +1,74 @@
+<sly data-sly-use.childPage="${'com.deloitte.components.ChildMapperWcmUse'}"></sly>
+<sly data-sly-use.labelName="${'com.deloitte.components.ContactInfo'}"></sly>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/apps/aemtesting/components/content/contactForm/contactForm.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<form id="submitContactForm" method="post" action="/bin/anlene/contactform">
+    <br><br>
+    <h2>Contact us</h2>
+    <div id="formContact" >
+        <label>${labelName.inputField1}:</label>
+        <input type="text" name="firstName"><br><br>
+
+        <label>${labelName.inputField2}</label>
+        <input type="text" name="lastName"><br><br>
+
+        <label>Email: </label>
+        <input type="email" name="emailAddress"><br><br>
+
+        <label>Phone: </label>
+        <input type="text" name="phone"><br><br>
+
+        <label>City: </label>
+        <select name="city" data-sly-test="${childPage.customers}" data-sly-list.city="${childPage.customers}">
+            <option value="${city}">${city}</option>
+        </select><br><br>
+
+        <label>Birthdate: </label>
+        <input type="date" name="birthDate"><br><br>
+
+        <label>Concern: </label>
+        <textarea name="concern" rows="5" cols="50" placeholder="Please enter your concerns here..."></textarea>
+        <br><br>
+
+        <input type="submit" name="submit" value="Submit"><br>
+    </div>
+</form>
+    <div id ="result"></div>
+    <script type="text/javascript">
+    $(function() {
+        var target = $('#formContact');
+        if (target.length) {
+            $('html,body').animate({
+                scrollTop: target.offset().top
+            }, 1000);
+            return false;
+        }
+    });
+
+
+    $("#submitContactForm").submit(function(event){
+        event.preventDefault(); //prevent default action
+        var post_url = $(this).attr("action"); //get form action url
+        var request_method = $(this).attr("method"); //get form GET/POST method
+        var form_data = $(this).serialize(); //Encode form elements for submission
+
+        $.ajax({
+            url : post_url,
+            type: request_method,
+            data : form_data
+        }).done(function(data){
+            alert("Response submitted!");
+            //$('#result').html(data.message);
+            $('#formContact').html(data.message);
+        }).fail(function(data){
+            alert("Please input all fields");
+            $('#result').html("");
+        });
+    });
+    </script>
+</body>
