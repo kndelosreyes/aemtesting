@@ -5,6 +5,8 @@
     <link rel="stylesheet" type="text/css" href="/apps/aemtesting/components/content/contactForm/contactForm.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/etc/designs/aemtesting/clientlibs/js/contactForm.js"></script>
+    <script type="text/javascript" src="/etc/designs/aemtesting/clientlibs/js/hoverToContactForm.js"></script>
 </head>
 <body>
 <form id="submitContactForm" method="post" action="/bin/anlene/contactform">
@@ -39,36 +41,36 @@
     </div>
 </form>
     <div id ="result"></div>
-    <script type="text/javascript">
-    $(function() {
-        var target = $('#formContact');
-        if (target.length) {
-            $('html,body').animate({
-                scrollTop: target.offset().top
-            }, 1000);
-            return false;
-        }
-    });
+<!--    <script type="text/javascript">-->
+<!--    $(function() {-->
+<!--        var target = $('#formContact');-->
+<!--        if (target.length) {-->
+<!--            $('html,body').animate({-->
+<!--                scrollTop: target.offset().top-->
+<!--            }, 1000);-->
+<!--            return false;-->
+<!--        }-->
+<!--    });-->
 
 
-    $("#submitContactForm").submit(function(event){
-        event.preventDefault(); //prevent default action
-        var post_url = $(this).attr("action"); //get form action url
-        var request_method = $(this).attr("method"); //get form GET/POST method
-        var form_data = $(this).serialize(); //Encode form elements for submission
+<!--    $("#submitContactForm").submit(function(event){-->
+<!--        event.preventDefault(); //prevent default action-->
+<!--        var post_url = $(this).attr("action"); //get form action url-->
+<!--        var request_method = $(this).attr("method"); //get form GET/POST method-->
+<!--        var form_data = $(this).serialize(); //Encode form elements for submission-->
 
-        $.ajax({
-            url : post_url,
-            type: request_method,
-            data : form_data
-        }).done(function(data){
-            alert("Response submitted!");
-            //$('#result').html(data.message);
-            $('#formContact').html(data.message);
-        }).fail(function(data){
-            alert("Please input all fields");
-            $('#result').html("");
-        });
-    });
-    </script>
+<!--        $.ajax({-->
+<!--            url : post_url,-->
+<!--            type: request_method,-->
+<!--            data : form_data-->
+<!--        }).done(function(data){-->
+<!--            alert("Response submitted!");-->
+<!--            //$('#result').html(data.message);-->
+<!--            $('#formContact').html(data.message);-->
+<!--        }).fail(function(data){-->
+<!--            alert("Please input all fields");-->
+<!--            $('#result').html("");-->
+<!--        });-->
+<!--    });-->
+<!--    </script>-->
 </body>
